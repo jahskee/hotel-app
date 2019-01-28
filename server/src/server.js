@@ -1,3 +1,4 @@
+require('dotenv').load();
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const merge = require("lodash/merge");
@@ -17,8 +18,8 @@ mongoose.connection.once('open',() => {
 });
 
 const app = express()
-console.log('serving pages on ../hotel-web/build')
-app.use('/', express.static('../hotel-web/build'))
+console.log('serving pages on ../web/build')
+app.use('/', express.static('../web/build'))
 app.use(cors());
 
 /* ====== GraphQL Start ===== */
