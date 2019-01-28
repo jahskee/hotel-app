@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Request Transcript</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<script>
+    const onLoadResize = function () { 
+        var element = document.getElementById('main');
+        element.style.height = window.innerHeight-200+'px';
+        element.style.width = '1000px';
+    }
+</script>
+<body onload="onLoadResize()" onresize="onLoadResize()">
+    <div id="container">
+        <header id="header">
+            head
+        </header>
+
+        <div id="main">
+            Middle
+        </div>
+
+        <footer id="footer">
+            footer
+        </footer>
+    </div>
+</body>
+
+</html>

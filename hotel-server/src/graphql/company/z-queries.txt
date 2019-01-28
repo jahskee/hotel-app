@@ -1,0 +1,38 @@
+/* ----- Book ----*/
+
+1. Get all
+{
+  companies {
+    id name company street1 street2 city state zipCode country
+  }
+}
+
+2. Get One
+{
+  company(id:"5c3f1a93e7e2b0524f9bdd85") {
+    id name company street1 street2 city state zipCode country
+  }
+}
+
+3. Add One 
+mutation {
+  saveCompany(
+          name: "Jaizon Lubaton", company: "SAIC", street1: "6850 Richmond Hwy", street2: "Apt 507",
+          city: "Jan 25 2019", zipCode: "22306", state: "VA", country: "US"
+  ){ id name company street1 street2 city state zipCode country }
+}
+
+4. Update One
+mutation {
+  saveCompany(id: "5c4e04002ea5904d8c46c886",  name: "Jaizon F. Lubaton", company: "SAIC", street1: "6850 Richmond Hwy", street2: "Apt 507",
+          city: "Jan 25 2019", zipCode: "22306", state: "VA", country: "US"){
+        id name company street1 street2 city state zipCode country
+  }
+}
+
+5. Remove One
+mutation {
+  removeCompany(id:"5c4e04002ea5904d8c46c886") {
+      id name company street1 street2 city state zipCode country 
+  }
+}

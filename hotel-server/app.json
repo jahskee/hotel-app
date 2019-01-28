@@ -1,0 +1,7 @@
+{
+    "name": "GraphQL Hilton",
+    "description": "A GraphQL and Node.js app",
+    "repository": "https://github.com/jahskee/graphql-hilton",
+    "logo": "https://node-js-sample.herokuapp.com/node.png",
+    "keywords": ["node", "express", "static"]
+  }    
