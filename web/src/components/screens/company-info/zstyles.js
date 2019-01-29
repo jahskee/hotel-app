@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-   border: 1px solid red;
+   //border: 1px solid red;
+  
+   background: #ccc
 `;
 
 export const Header = styled.div`
@@ -12,19 +14,6 @@ export const Header = styled.div`
   
 `;
 
-export const Main = styled.div`
-  border: 1px solid whitesmoke;
-  width: 40%;
-  margin: 0 auto;
-  padding-top: 20px;
-`;
-
-
-export const Footer = styled.div`
-  // border: 1px solid red;
-  height: 100px;
-  background: whitesmoke;
-`;
 
 export const FaceImage = styled.img`
   width: 100px;
@@ -39,8 +28,11 @@ export const Form = styled.form`
     justify-content: space-between;
     //border: 1px solid green;
     width: 600px;
+    
     margin: 0 auto;
+    margin-top: 100px;
     padding: 20px 0;
+    background: whitesmoke;
 `;
 
 export const Row = styled.div`
@@ -79,4 +71,19 @@ export const HeaderText = styled.div`
 export const H2 = styled.h2`
   padding: 0;
   margin: 0;
+`;
+
+
+
+export const Text1 = styled.div`
+  padding: 20px;
+  font-size: 20px;
+`;
+
+export const Button = styled.button`
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  width: 300px;
+  margin: 40px auto;
 `;

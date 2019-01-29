@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import {
     Container,
     Header,
-    Main,
     Label,
     Form,
     Row,
-    Footer,
     FaceImage,
     Input, 
     Select,
     Option,
     HeaderText,
-    H2
+    H2,
+    Button,
+    Text1
 } from './zstyles';
 
 class CompanyInfo extends Component {
 
     state = {
-        height: window.innerHeight-200,
+        height: window.innerHeight,
     }
     updateWindowDimensions = () => {
-        this.setState({height: window.innerHeight-300})
+        this.setState({height: window.innerHeight})
         console.log('window resized');
     }
 
@@ -31,36 +31,47 @@ class CompanyInfo extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={{height: this.state.height}}>
                 <Header>
                     {/* <FaceImage src='https://i.imgur.com/hiCvGuo.png'/> */}
                     <FaceImage src='https://i.imgur.com/qVw0qzI.png'/>
                     <HeaderText>
-                        <H2>Hi my name is Jaizon.</H2>
-                        <H2>It is a pleasure to assist you.</H2>
+                        <H2>Hi my name is Jaizon,</H2>
+                        <H2>my pleasure to assist you.</H2>
                     </HeaderText>
                    
                 </Header>
-                <Main style={{height: this.state.height}}>
+              
+                       
                        <Form>
+                             <Text1>Please Enter Your Company Info</Text1>
                             <Row><Label htmlFor='name'>Name</Label><Input name='name' type='text' /></Row>
                             <Row><Label htmlFor='name'>Company</Label><Input name='company' type='text' /></Row>
                             <Row><Label htmlFor='name'>Street</Label><Input name='street' type='text' /></Row>
                             <Row><Label htmlFor='name'></Label><Input name='street2' type='text' /></Row>
                             <Row><Label htmlFor='name'>City</Label><Input name='city' type='text' /></Row>
+                            <Row><Label htmlFor='name'>Zip Code</Label><Input name='zipcode' type='text' /></Row>
                             <Row>
-                                <Label htmlFor='name'>State</Label>
-                                <Select>
+                                <Label htmlFor='name' style={{paddingRight: '15px'}}>State</Label>
+                                <Select name='state'>
                                     <Option value="AL">Alabama</Option>
                                     <Option value="AK">Alaska</Option>
                                 </Select>
                             
                             </Row>
-                            <Row><Label htmlFor='name'>Zip Code</Label><Input name='zipcode' type='text' /></Row>
-
+                           
+                            <Row>
+                                <Label htmlFor='name' style={{paddingRight: '15px'}}>Country</Label>
+                                <Select name='country'>
+                                    <Option value="US">United States</Option>
+                                    <Option value="UK">United Kingdom</Option>
+                                </Select>
+                            
+                            </Row>
+                            <Button>Request for Documents</Button>
                     </Form>
-                </Main>
-                <Footer><h3>Thank you!</h3></Footer>
+           
+             
             </Container>
         );
     }
