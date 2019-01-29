@@ -12,6 +12,7 @@ import {
     HeaderText,
     H2,
     Button,
+    MailImage,
     Text1
 } from './zstyles';
 
@@ -44,7 +45,8 @@ class CompanyInfo extends Component {
               
                        
                        <Form>
-                             <Text1>Please Enter Your Company Info</Text1>
+                            <MailImage src='https://i.imgur.com/bx92YRh.png' />
+                             <Text1>Where to send the documents?</Text1>
                             <Row><Label htmlFor='name'>Name</Label><Input name='name' type='text' /></Row>
                             <Row><Label htmlFor='name'>Company</Label><Input name='company' type='text' /></Row>
                             <Row><Label htmlFor='name'>Street</Label><Input name='street' type='text' /></Row>
@@ -54,6 +56,7 @@ class CompanyInfo extends Component {
                             <Row>
                                 <Label htmlFor='name' style={{paddingRight: '15px'}}>State</Label>
                                 <Select name='state'>
+                                    <Option value=" ">[Select]</Option>
                                     <Option value="AL">Alabama</Option>
                                     <Option value="AK">Alaska</Option>
                                 </Select>

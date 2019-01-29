@@ -16,9 +16,21 @@ export const Header = styled.div`
 
 
 export const FaceImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   float: left;
+ 
+
+`;
+
+
+export const MailImage = styled.img`
+  width: 100px;
+  float: left;
+  transform: rotate(-20deg);
+  padding-left: 10px;
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* For IE8 and earlier */
 
 `;
 
@@ -73,11 +85,12 @@ export const H2 = styled.h2`
   margin: 0;
 `;
 
-
-
 export const Text1 = styled.div`
+  display: float;
+  float: left;
   padding: 20px;
   font-size: 20px;
+  margin: 0 auto;
 `;
 
 export const Button = styled.button`
@@ -86,4 +99,5 @@ export const Button = styled.button`
   padding: 10px 20px;
   width: 300px;
   margin: 40px auto;
+  
 `;
