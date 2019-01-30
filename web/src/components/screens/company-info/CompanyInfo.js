@@ -7,7 +7,6 @@ import {
   Row,
   FaceImage,
   Input,
-  SelectState,
   HeaderText,
   H2,
   Button,
@@ -28,7 +27,28 @@ const options = [
 
 class CompanyInfo extends Component {
   state = {
-    selectedOption: null
+    states,
+    selectedOption: null,
+    fields: {
+      name: "",
+      email: "",
+      company: "",
+      street1: "",
+      city: "",
+      zipCode: "",
+      state: "",
+      country: ""
+    },
+    error: {
+      name: false,
+      email: false,
+      company: false,
+      street1: false,
+      city: false,
+      zipCode: false,
+      state: false,
+      country: false
+    }
   };
   handleChange = selectedOption => {
     this.setState({ selectedOption });
@@ -48,19 +68,14 @@ class CompanyInfo extends Component {
     alert("hello world");
   };
 
-  state = {
-    error: {
-        name: false,
-        email: false,
-        company: false,
-        street1: false,
-        city: false,
-        zipCode: false,
-        state: false,
-        country: false,
-    }
-  }
-
+  handleNameChange = () => {};
+  handleEmailChange = () => {};
+  handleCompanyChange = () => {};
+  handleStreet1Change = () => {};
+  handleStreet2Change = () => {};
+  handleCityChange = () => {};
+  handleZipCodeChange = () => {};
+  
   render() {
     const { selectedOption } = this.state;
 
@@ -77,55 +92,113 @@ class CompanyInfo extends Component {
         <Form onSubmit={this.handleSubmit}>
           <FormTop>
             <MailImage src="https://i.imgur.com/bx92YRh.png" />
-            <Text1>Please enter your Company information to receive hard copy of 
-                my certificates and transcript of records, thank you!</Text1>
+            <Text1>
+              Please enter your Company information to receive hard copy of my
+              certificates and transcript of records, thank you!
+            </Text1>
           </FormTop>
           <InputPanel>
             <Row>
-              <Input name="name" type="text" placeholder="Name" />
-              { this.state.error.name && (<ErrorMsg>Please enter name.</ErrorMsg>)}
+              <Input
+                name="name"
+                type="text"
+                placeholder="Name"
+                value={this.state.fields.name}
+                onChange={this.handleNameChange}
+              />
+              {this.state.error.name && <ErrorMsg>Please enter name.</ErrorMsg>}
             </Row>
-            <Row  style={{marginBottom: 20}}>
-              <Input name="email" type="text" placeholder="Email" />
-              { this.state.error.email && (<ErrorMsg>Please enter email.</ErrorMsg>)}
-            </Row>
-            <Row>
-              <Input name="company" type="text" placeholder="Company Name" />
-              { this.state.error.company && (<ErrorMsg>Please enter company.</ErrorMsg>)}
-            </Row>
-            <Row>
-              <Input name="street1" type="text" placeholder="Street" />
-              { this.state.error.street1 && (<ErrorMsg>Please enter street.</ErrorMsg>)}
-            </Row>
-            <Row>
-              <Input name="street2" type="text" placeholder="Street" />
-            </Row>
-            <Row>
-              <Input name="city" type="text" placeholder="City" />
-              { this.state.error.city && (<ErrorMsg>Please enter city.</ErrorMsg>)}
-            </Row>
-            <Row>
-              <Input name="zipcode" type="text" placeholder="Zip Code" style={{width: 150}}/>
-              { this.state.error.zipCode && (<ErrorMsg>Please enter zip code.</ErrorMsg>)}
+            <Row style={{ marginBottom: 20 }}>
+              <Input
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={this.state.fields.email}
+                onChange={this.handleEmailChange}
+              />
+              {this.state.error.email && (
+                <ErrorMsg>Please enter email.</ErrorMsg>
+              )}
             </Row>
             <Row>
-                <Select
-                  id='select-state'
-                  value={selectedOption}
-                  onChange={this.handleChange}
-                  options={options}
-                />
-                { this.state.error.state && (<ErrorMsg>Please select state.</ErrorMsg>)}
+              <Input
+                name="company"
+                type="text"
+                placeholder="Company Name"
+                value={this.state.fields.company}
+                onChange={this.handleCompanyChange}
+              />
+              {this.state.error.company && (
+                <ErrorMsg>Please enter company.</ErrorMsg>
+              )}
+            </Row>
+            <Row>
+              <Input
+                name="street1"
+                type="text"
+                placeholder="Street"
+                value={this.state.fields.street1}
+                onChange={this.handleStreet1Change}
+              />
+              {this.state.error.street1 && (
+                <ErrorMsg>Please enter street.</ErrorMsg>
+              )}
+            </Row>
+            <Row>
+              <Input
+                name="street2"
+                type="text"
+                placeholder="Street"
+                value={this.state.fields.street2}
+                onChange={this.handleStreet2Change}
+              />
+            </Row>
+            <Row>
+              <Input
+                name="city"
+                type="text"
+                placeholder="City"
+                value={this.state.fields.city}
+                onChange={this.handleCityChange}
+              />
+              {this.state.error.city && <ErrorMsg>Please enter city.</ErrorMsg>}
             </Row>
 
-            <Row >
-                <Select
-                  id='select-country'
-                  value={selectedOption}
-                  onChange={this.handleChange}
-                  options={options}
-                />
-                 { this.state.error.country && (<ErrorMsg>Please select country</ErrorMsg>)}
+            <Row>
+              <Input
+                name="zipcode"
+                type="text"
+                placeholder="Zip Code"
+                style={{ width: 150 }}
+                value={this.state.fields.zipCode}
+                onChange={this.handleZipCodeChange}
+              />
+              {this.state.error.zipCode && (
+                <ErrorMsg>Please enter zip code.</ErrorMsg>
+              )}
+            </Row>
+            <Row>
+              <Select
+                id="select-state"
+                value={selectedOption}
+                onChange={this.handleChange}
+                options={options}
+              />
+              {this.state.error.state && (
+                <ErrorMsg>Please select state.</ErrorMsg>
+              )}
+            </Row>
+
+            <Row>
+              <Select
+                id="select-country"
+                value={selectedOption}
+                onChange={this.handleChange}
+                options={options}
+              />
+              {this.state.error.country && (
+                <ErrorMsg>Please select country</ErrorMsg>
+              )}
             </Row>
 
             <Button>Request for Documents</Button>
