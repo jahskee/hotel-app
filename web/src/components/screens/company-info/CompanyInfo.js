@@ -17,7 +17,7 @@ import {
 } from "./zstyles";
 import Select from "react-select";
 
-import states from "../../data/states";
+import dataStates from "../../data/states";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -27,7 +27,7 @@ const options = [
 
 class CompanyInfo extends Component {
   state = {
-    states,
+    states: dataStates,
     selectedOption: null,
     fields: {
       name: "",
@@ -184,7 +184,7 @@ class CompanyInfo extends Component {
                 id="select-state"
                 value={selectedOption}
                 onChange={this.handleStateChange}
-                options={options}
+                options={this.state.states}
               />
               {this.state.error.state && (
                 <ErrorMsg>Please select state.</ErrorMsg>
