@@ -68,14 +68,16 @@ class CompanyInfo extends Component {
     alert("hello world");
   };
 
-  handleNameChange = () => {};
-  handleEmailChange = () => {};
-  handleCompanyChange = () => {};
-  handleStreet1Change = () => {};
-  handleStreet2Change = () => {};
-  handleCityChange = () => {};
-  handleZipCodeChange = () => {};
-  
+  handleNameChange = () => { alert('name change')};
+  handleEmailChange = () => {alert('email change')};
+  handleCompanyChange = () => {alert('company change')};
+  handleStreet1Change = () => {alert('street1 change')};
+  handleStreet2Change = () => {alert('street2 change')};
+  handleCityChange = () => {alert('city change')};
+  handleZipCodeChange = () => {alert('zip code change')};
+  handleStateChange = () => {alert('state change')};
+  handleCountryChange = () => {alert('country change')};
+
   render() {
     const { selectedOption } = this.state;
 
@@ -181,7 +183,7 @@ class CompanyInfo extends Component {
               <Select
                 id="select-state"
                 value={selectedOption}
-                onChange={this.handleChange}
+                onChange={this.handleStateChange}
                 options={options}
               />
               {this.state.error.state && (
@@ -193,7 +195,7 @@ class CompanyInfo extends Component {
               <Select
                 id="select-country"
                 value={selectedOption}
-                onChange={this.handleChange}
+                onChange={this.handleCountryChange}
                 options={options}
               />
               {this.state.error.country && (
