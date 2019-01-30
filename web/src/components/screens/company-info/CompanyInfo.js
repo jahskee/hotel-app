@@ -18,6 +18,7 @@ import {
 import Select from "react-select";
 
 import dataStates from "../../data/states";
+import dataCountries from "../../data/country";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -28,7 +29,9 @@ const options = [
 class CompanyInfo extends Component {
   state = {
     states: dataStates,
-    selectedOption: null,
+    countries: dataCountries,
+    selectedState: null,
+    selectedCountry: "US",
     fields: {
       name: "",
       email: "",
@@ -68,18 +71,37 @@ class CompanyInfo extends Component {
     alert("hello world");
   };
 
-  handleNameChange = () => { alert('name change')};
-  handleEmailChange = () => {alert('email change')};
-  handleCompanyChange = () => {alert('company change')};
-  handleStreet1Change = () => {alert('street1 change')};
-  handleStreet2Change = () => {alert('street2 change')};
-  handleCityChange = () => {alert('city change')};
-  handleZipCodeChange = () => {alert('zip code change')};
-  handleStateChange = () => {alert('state change')};
-  handleCountryChange = () => {alert('country change')};
+  handleNameChange = () => {
+    alert("name change");
+  };
+  handleEmailChange = () => {
+    alert("email change");
+  };
+  handleCompanyChange = () => {
+    alert("company change");
+  };
+  handleStreet1Change = () => {
+    alert("street1 change");
+  };
+  handleStreet2Change = () => {
+    alert("street2 change");
+  };
+  handleCityChange = () => {
+    alert("city change");
+  };
+  handleZipCodeChange = () => {
+    alert("zip code change");
+  };
+  handleStateChange = () => {
+    alert("state change");
+  };
+  handleCountryChange = () => {
+    //alert('country change')
+  };
 
   render() {
-    const { selectedOption } = this.state;
+    //const { selectedCountry } = this.state;
+    const selectedCountry = "United States";
 
     return (
       <Container>
@@ -182,7 +204,7 @@ class CompanyInfo extends Component {
             <Row>
               <Select
                 id="select-state"
-                value={selectedOption}
+                value={selectedCountry}
                 onChange={this.handleStateChange}
                 options={this.state.states}
               />
@@ -194,12 +216,12 @@ class CompanyInfo extends Component {
             <Row>
               <Select
                 id="select-country"
-                value={selectedOption}
+                value={"US"}
                 onChange={this.handleCountryChange}
-                options={options}
+                options={this.state.countries}
               />
               {this.state.error.country && (
-                <ErrorMsg>Please select country</ErrorMsg>
+                <ErrorMsg>Please select country.</ErrorMsg>
               )}
             </Row>
 
