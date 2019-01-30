@@ -55,7 +55,9 @@ class CompanyInfo extends Component {
         company: false,
         street1: false,
         city: false,
-        zipCode: false
+        zipCode: false,
+        state: false,
+        country: false,
     }
   }
 
@@ -81,30 +83,30 @@ class CompanyInfo extends Component {
           <InputPanel>
             <Row>
               <Input name="name" type="text" placeholder="Name" />
-              { this.state.error.name && (<ErrorMsg>Please enter name</ErrorMsg>)}
+              { this.state.error.name && (<ErrorMsg>Please enter name.</ErrorMsg>)}
             </Row>
             <Row  style={{marginBottom: 20}}>
               <Input name="email" type="text" placeholder="Email" />
-              { this.state.error.email && (<ErrorMsg>Please enter email</ErrorMsg>)}
+              { this.state.error.email && (<ErrorMsg>Please enter email.</ErrorMsg>)}
             </Row>
             <Row>
               <Input name="company" type="text" placeholder="Company Name" />
-              { this.state.error.company && (<ErrorMsg>Please enter company</ErrorMsg>)}
+              { this.state.error.company && (<ErrorMsg>Please enter company.</ErrorMsg>)}
             </Row>
             <Row>
               <Input name="street1" type="text" placeholder="Street" />
-              { this.state.error.street1 && (<ErrorMsg>Please enter Street</ErrorMsg>)}
+              { this.state.error.street1 && (<ErrorMsg>Please enter street.</ErrorMsg>)}
             </Row>
             <Row>
               <Input name="street2" type="text" placeholder="Street" />
             </Row>
             <Row>
               <Input name="city" type="text" placeholder="City" />
-              { this.state.error.city && (<ErrorMsg>Please enter City</ErrorMsg>)}
+              { this.state.error.city && (<ErrorMsg>Please enter city.</ErrorMsg>)}
             </Row>
             <Row>
               <Input name="zipcode" type="text" placeholder="Zip Code" style={{width: 150}}/>
-              { this.state.error.zipCode && (<ErrorMsg>Please enter Zip Code</ErrorMsg>)}
+              { this.state.error.zipCode && (<ErrorMsg>Please enter zip code.</ErrorMsg>)}
             </Row>
             <Row>
                 <Select
@@ -113,6 +115,7 @@ class CompanyInfo extends Component {
                   onChange={this.handleChange}
                   options={options}
                 />
+                { this.state.error.state && (<ErrorMsg>Please select state.</ErrorMsg>)}
             </Row>
 
             <Row >
@@ -122,6 +125,7 @@ class CompanyInfo extends Component {
                   onChange={this.handleChange}
                   options={options}
                 />
+                 { this.state.error.country && (<ErrorMsg>Please select country</ErrorMsg>)}
             </Row>
 
             <Button>Request for Documents</Button>
