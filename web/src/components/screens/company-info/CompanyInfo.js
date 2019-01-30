@@ -52,7 +52,10 @@ class CompanyInfo extends Component {
     error: {
         name: false,
         email: false,
-        company: false
+        company: false,
+        street1: false,
+        city: false,
+        zipCode: false
     }
   }
 
@@ -72,7 +75,7 @@ class CompanyInfo extends Component {
         <Form onSubmit={this.handleSubmit}>
           <FormTop>
             <MailImage src="https://i.imgur.com/bx92YRh.png" />
-            <Text1>Hi, please enter your Company information to receive hard copy of 
+            <Text1>Please enter your Company information to receive hard copy of 
                 my certificates and transcript of records, thank you!</Text1>
           </FormTop>
           <InputPanel>
@@ -80,7 +83,7 @@ class CompanyInfo extends Component {
               <Input name="name" type="text" placeholder="Name" />
               { this.state.error.name && (<ErrorMsg>Please enter name</ErrorMsg>)}
             </Row>
-            <Row>
+            <Row  style={{marginBottom: 20}}>
               <Input name="email" type="text" placeholder="Email" />
               { this.state.error.email && (<ErrorMsg>Please enter email</ErrorMsg>)}
             </Row>
@@ -90,40 +93,37 @@ class CompanyInfo extends Component {
             </Row>
             <Row>
               <Input name="street1" type="text" placeholder="Street" />
-              <ErrorMsg>Please enter Street</ErrorMsg>
+              { this.state.error.street1 && (<ErrorMsg>Please enter Street</ErrorMsg>)}
             </Row>
             <Row>
               <Input name="street2" type="text" placeholder="Street" />
             </Row>
             <Row>
               <Input name="city" type="text" placeholder="City" />
-              <ErrorMsg>Please enter City</ErrorMsg>
+              { this.state.error.city && (<ErrorMsg>Please enter City</ErrorMsg>)}
             </Row>
             <Row>
-              <Input name="zipcode" type="text" placeholder="Zip Code" />
-              <ErrorMsg>Please enter Zip Code</ErrorMsg>
+              <Input name="zipcode" type="text" placeholder="Zip Code" style={{width: 150}}/>
+              { this.state.error.zipCode && (<ErrorMsg>Please enter Zip Code</ErrorMsg>)}
             </Row>
             <Row>
-              <SelectState style={{ width: 300 }}>
                 <Select
-                  style={{ width: 300 }}
+                  id='select-state'
                   value={selectedOption}
                   onChange={this.handleChange}
                   options={options}
                 />
-              </SelectState>
             </Row>
 
-            <Row>
-              <SelectState style={{ width: 300 }}>
+            <Row >
                 <Select
-                  style={{ width: 300 }}
+                  id='select-country'
                   value={selectedOption}
                   onChange={this.handleChange}
                   options={options}
                 />
-              </SelectState>
             </Row>
+
             <Button>Request for Documents</Button>
           </InputPanel>
         </Form>
