@@ -17,6 +17,9 @@ if (process.env.NODE_ENV === 'development') {
   // returns error when state is mutated
   middlewares.push(freeze);
   middlewares.push(logger);
+  console.log('development environment')
+} else {
+  console.log('production environment')
 }
 
 export function configureStore() {
