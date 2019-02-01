@@ -19,12 +19,10 @@ import Select from "react-select";
 
 import dataStates from "../../data/states";
 import dataCountries from "../../data/country";
+import { connect } from 'react-redux';
+import * as _actions from '../../redux/actions/actions';
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" }
-];
+
 
 class CompanyInfo extends Component {
   state = {
@@ -233,4 +231,16 @@ class CompanyInfo extends Component {
   }
 }
 
-export default CompanyInfo;
+// ---------- Setup Redux -------------
+const mapStateToProps = store => ({
+  userSession: store.userSession,
+});
+
+const mapDispatchToProps = {
+  updateUserSession: _actions.updateUserSession,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CompanyInfo);
