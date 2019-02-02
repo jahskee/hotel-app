@@ -21,16 +21,18 @@ import dataStates from "../../data/states";
 import dataCountries from "../../data/country";
 import { connect } from 'react-redux';
 import * as _actions from '../../redux/actions/actions';
-
-
+import Immutable from 'immutable';
 
 class CompanyInfo extends Component {
+
+
   state = {
     states: dataStates,
     countries: dataCountries,
     selectedState: null,
     selectedCountry: "US",
-    fields: {
+
+    fields: Immutable.Map({
       name: "",
       email: "",
       company: "",
@@ -39,7 +41,7 @@ class CompanyInfo extends Component {
       zipCode: "",
       state: "",
       country: ""
-    },
+    }),
     error: {
       name: false,
       email: false,
@@ -49,56 +51,67 @@ class CompanyInfo extends Component {
       zipCode: false,
       state: false,
       country: false
-    }
+    },
   };
+
+
+
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
   };
 
-  updateWindowDimensions = () => {
-    this.setState({ height: window.innerHeight });
-    console.log("window resized");
-  };
 
   componentDidMount() {
-    window.addEventListener("resize", this.updateWindowDimensions);
+   
+
   }
 
-  handleSubmit = () => {
-    alert("hello world");
+  handleSubmit = (e) => {
+    e.preventDefault();
   };
 
-  handleNameChange = () => {
-    alert("name change");
+  handleNameChange = (evt) => {
+    evt.persist();
+    this.setState(({fields}) => { 
+      return {fields: fields.set('name', evt.target.value)};
+    });
   };
+
   handleEmailChange = () => {
-    alert("email change");
+    
   };
+
   handleCompanyChange = () => {
-    alert("company change");
+   
   };
+
   handleStreet1Change = () => {
-    alert("street1 change");
+   
   };
+
   handleStreet2Change = () => {
-    alert("street2 change");
+    
   };
+
   handleCityChange = () => {
-    alert("city change");
+    
   };
+
   handleZipCodeChange = () => {
-    alert("zip code change");
+    
   };
+
   handleStateChange = () => {
-    alert("state change");
+  
   };
+  
   handleCountryChange = () => {
-    //alert('country change')
+   
   };
 
   render() {
-    //const { selectedCountry } = this.state;
+    
     const selectedCountry = "United States";
 
     return (
@@ -125,7 +138,7 @@ class CompanyInfo extends Component {
                 name="name"
                 type="text"
                 placeholder="Name"
-                value={this.state.fields.name}
+                value={this.state.fields.get('name')}
                 onChange={this.handleNameChange}
               />
               {this.state.error.name && <ErrorMsg>Please enter name.</ErrorMsg>}
